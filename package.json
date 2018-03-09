@@ -10,9 +10,12 @@
   "scripts": {
     "build": "yarn sass:build && react-scripts build",
     "eject": "react-scripts eject",
-    "sass:watch" : "sass --watch src/styles/scss:src/styles/css",
-    "sass:build": "sass --update src/styles/scss:src/styles/css",
-    "start": "react-scripts start",
+    "sass:watch": "node-sass -w src/styles/scss -o src/styles/css",
+    "sass:build": "node-sass src/styles/scss -o src/styles/css --source-map true",
+    "start": "yarn run sass:build && react-scripts start",
     "test": "react-scripts test --env=jsdom"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
   }
 }
